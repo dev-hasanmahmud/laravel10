@@ -17,3 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Multiple HTTP verbs
+Route::match(['get', 'post'], '/mhv', function () {
+    return 'Multiple HTTP verbs';
+});
+ 
+// All HTTP verbs
+Route::any('/ahv', function () {
+    return 'All HTTP verbs';
+});

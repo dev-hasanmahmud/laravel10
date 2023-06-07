@@ -22,5 +22,4 @@ Route::get('/', function () {
 Route::get('/greeting', function () {
     return 'Hello World';
 });
- 
-Route::get('/user', [UserController::class, 'index']);
+Route::get('/user', [UserController::class, 'index'])->name('user.index');
