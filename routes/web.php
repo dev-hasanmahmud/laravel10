@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 |
 */
 
+// View Routes
 Route::get('/', function () {
     return view('welcome');
 });
@@ -28,4 +29,9 @@ Route::get('/user', [UserController::class, 'index'])->name('user.index');
 // Dependency Injection
 Route::post('/users', function (Request $request) {
     dd($request->all());
+});
+
+// Parameters & Dependency Injection
+Route::get('/customer/{id}', function (string $id) {
+    return 'Customer '.$id;
 });
