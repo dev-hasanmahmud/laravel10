@@ -24,7 +24,7 @@ Route::get('/', function () {
 Route::get('/greeting', function () {
     return 'Hello World';
 });
-Route::get('/user', [UserController::class, 'index'])->name('user.index');
+Route::get('/user', [UserController::class, 'index'])->name('user.index'); // with Named Routes
 
 // Dependency Injection
 Route::post('/users', function (Request $request) {
@@ -34,4 +34,14 @@ Route::post('/users', function (Request $request) {
 // Parameters & Dependency Injection
 Route::get('/customer/{id}', function (string $id) {
     return 'Customer '.$id;
+});
+
+// Optional Parameters
+Route::get('/client/{name?}', function (string $name = 'John') {
+    return $name;
+});
+ 
+// Redirect Routes and Generating Redirects
+Route::get('/redir', function () {
+    return redirect()->route('user.index');
 });
