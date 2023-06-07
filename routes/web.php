@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,8 @@ Route::get('/greeting', function () {
     return 'Hello World';
 });
 Route::get('/user', [UserController::class, 'index'])->name('user.index');
+
+// Dependency Injection
+Route::post('/users', function (Request $request) {
+    dd($request->all());
+});
