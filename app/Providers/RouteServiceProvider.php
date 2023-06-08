@@ -40,5 +40,10 @@ class RouteServiceProvider extends ServiceProvider
 
         // Explicit Route Model Binding
         Route::model('user', User::class);
+
+        // Rate Limiting
+        RateLimiter::for('hit_url', function (Request $request) {
+            return Limit::perMinute(2);
+        });
     }
 }

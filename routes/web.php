@@ -56,3 +56,21 @@ Route::get('usr/{id}', function (User $id) {
 Route::get('/cus/{user}', function ($user) {
     return $user;
 });
+
+// Accessing The Current Route
+Route::get('/atcr', function () {
+    $route = Route::current();
+    $name = Route::currentRouteName();
+    $action = Route::currentRouteAction(); 
+    return array('route' => $route,'name' => $name,'action' => $action);
+})->name('atcr.index');
+
+// Fallback Routes
+Route::fallback(function () {
+    return view('welcome');
+});
+
+// Rate Limiting
+Route::get('/rl', function () {
+    return 'Rate Limiting';
+})->middleware('throttle:hit_url');
