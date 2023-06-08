@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 /*
@@ -44,4 +45,14 @@ Route::get('/client/{name?}', function (string $name = 'John') {
 // Redirect Routes and Generating Redirects
 Route::get('/redir', function () {
     return redirect()->route('user.index');
+});
+
+// Implicit Route Model Binding
+Route::get('usr/{id}', function (User $id) {
+    return $id;
+});
+
+// Explicit Route Model Binding
+Route::get('/cus/{user}', function ($user) {
+    return $user;
 });
