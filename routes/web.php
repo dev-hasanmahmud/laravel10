@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\BasicController;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -74,3 +75,6 @@ Route::fallback(function () {
 Route::get('/rl', function () {
     return 'Rate Limiting';
 })->middleware('throttle:hit_url');
+
+// Basic Controllers
+Route::get('/bc/{id}', [BasicController::class, 'show']);
