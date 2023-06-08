@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BasicController;
+use App\Http\Controllers\ProvisionServer;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -78,3 +79,6 @@ Route::get('/rl', function () {
 
 // Basic Controllers
 Route::get('/bc/{id}', [BasicController::class, 'show']);
+
+// Single Action Controllers
+Route::get('/sac', ProvisionServer::class);
