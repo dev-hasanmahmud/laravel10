@@ -7,6 +7,7 @@ use App\Http\Controllers\ProvisionServer;
 use App\Http\Controllers\PhotoController;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Blade;
 
 /*
 |--------------------------------------------------------------------------
@@ -95,3 +96,14 @@ Route::get('/contact', [PhotoController::class, 'contact']);
 
 // Passing data to views
 Route::get('contact_show/{id}', [PhotoController::class, 'contact_show']);
+
+// Rendering Inline Blade Templates
+Route::get('/ribt', function () {
+    return Blade::render('Hello, {{ $name }}', ['name' => 'Julian Bashir']);
+});
+
+// Rendering Blade Fragments
+Route::get('/rbf', function () {
+    $title = "Welcome to Laravel Learning";
+    return view('fragment', ['title' => $title])->fragment('user-list');
+});
