@@ -92,3 +92,6 @@ Route::resource('photos', PhotoController::class);
 
 // Creating views and custom method
 Route::get('/contact', [PhotoController::class, 'contact']);
+
+// Passing data to views
+Route::get('contact_show/{id}', [PhotoController::class, 'contact_show']);

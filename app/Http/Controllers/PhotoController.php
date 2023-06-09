@@ -67,4 +67,13 @@ class PhotoController extends Controller
     {
         return view('pages.contact');
     }
+
+    // Passing data to views
+    public function contact_show($id)
+    {
+        $name = 'Hasan Mahmud';
+        
+        // return view('pages.contact_show')->with('id', $id);
+        return view('pages.contact_show', compact('id', 'name'));
+    }
 }
