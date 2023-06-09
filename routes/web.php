@@ -89,3 +89,6 @@ Route::resource('photos', PhotoController::class);
 
 // Specifying The Resource Model-    php artisan make:controller PhotoController --model=Photo --resource
 // Generating Form Requests-   php artisan make:controller PhotoController --model=Photo --resource --requests
+
+// Creating views and custom method
+Route::get('/contact', [PhotoController::class, 'contact']);

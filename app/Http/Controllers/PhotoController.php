@@ -61,4 +61,10 @@ class PhotoController extends Controller
     {
         //
     }
+
+    // custom method
+    public function contact()
+    {
+        return view('pages.contact');
+    }
 }
