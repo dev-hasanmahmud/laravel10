@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\View;
 use Illuminate\Http\Request;
 
 class PhotoController extends Controller
@@ -74,6 +74,7 @@ class PhotoController extends Controller
         $name = 'Hasan Mahmud';
         
         // return view('pages.contact_show')->with('id', $id);
-        return view('pages.contact_show', compact('id', 'name'));
+        // return view('pages.contact_show', compact('id', 'name'));
+        return View::make('pages.contact_show', compact('id', 'name'));  // Views may also be returned using the View facade
     }
 }
