@@ -11,6 +11,7 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
     </head>
     <body class="antialiased">
+        <h1>{{ $ap_nm }}</h1>
         <h3>For Dependency Injection and CSRF Protection Learn</h3>
         <form method="POST" action="{{url('users')}}">
             @csrf

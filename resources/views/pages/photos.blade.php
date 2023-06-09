@@ -12,7 +12,9 @@
     </head>
     <body class="antialiased">
         <h1>{{ $ap_nm }}</h1>
-        <h3>User Profile:</h3>
-        <p>Username: {{$user->name}}</p>
+
+        @foreach($users as $val)
+            <p>{{ $val->name }} - {{ $val->email }}</p>
+        @endforeach
     </body>
 </html>

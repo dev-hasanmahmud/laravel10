@@ -11,6 +11,8 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
     </head>
     <body class="antialiased">
+        <h1>{{ $ap_nm }}</h1>
         <h3>Contact Us</h3>
+        <p>{{ $vc }}</p>
     </body>
 </html>
