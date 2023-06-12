@@ -52,8 +52,20 @@ return new class extends Migration
             $table->text('description2');
             // The unsignedInteger method creates an UNSIGNED INTEGER equivalent column
             $table->unsignedInteger('votes2');
+            // $table->index(['account_id', 'created_at']);
+            $table->index(['account_id', 'created_at']);
+
+            // Foreign Key Constraints
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+
             // The timestamp method creates a TIMESTAMP equivalent column with an optional precision (total digits)
             $table->timestamps();
+        });
+
+        // Dropping Columns
+        Schema::table('flights', function (Blueprint $table) {
+            $table->dropColumn('votes');
         });
     }
 
