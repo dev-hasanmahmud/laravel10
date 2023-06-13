@@ -8,6 +8,7 @@ use App\Http\Controllers\PhotoController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -107,3 +108,31 @@ Route::get('/rbf', function () {
     $title = "Welcome to Laravel Learning";
     return view('fragment', ['title' => $title])->fragment('user-list');
 });
+
+// Insert Data
+Route::get('/insert', function(){
+    DB::insert('insert into users(name, email, password) values(?, ?, ?)', ['Ayan Ullah', 'ayan@gmail.com', '123456']);
+    return redirect()->back();
+});
+
+// Read Data
+Route::get('/read', function(){
+    $results = DB::select('select * from users where id=?', [1]);
+    // dd($results);
+
+    foreach($results as $val) {
+        return $val->name.' - '.$val->email;
+    }
+});   
+
+// Update Data
+Route::get('/update', function(){
+    $updated = DB::update('update users set name="Habib Khan" where id=?', [3]);
+    return $updated;
+});  
+
+// Delete Data
+Route::get('/delete', function(){
+    $deleted = DB::delete('delete from users where id=?', [3]);
+    return $deleted;
+});  
