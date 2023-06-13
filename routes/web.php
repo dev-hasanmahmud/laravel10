@@ -157,4 +157,13 @@ Route::get('/ereadfind', function(){
     $data = Partner::findOrFail(2);
 
     return $data;
-});  
+});
+
+// Eloquent Insert Data
+Route::get('/einsert', function(){
+    $partner = new Partner;
+    // $partner = Partner::find(1);
+    $partner->name = "Billiger";
+    $partner->bio = "Billiger description";
+    $partner->save();
+});
