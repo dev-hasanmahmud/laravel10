@@ -186,3 +186,25 @@ Route::get('/edelete', function(){
     Partner::destroy(2);
 
 });
+
+// Eloquent delete data
+Route::get('/esoftdelete', function(){
+    Partner::find(3)->delete();
+});
+
+// Eloquent retrive deleted data
+Route::get('/erdelete', function(){
+    // $data = Partner::withTrashed()->where('id', 3)->get();
+    $data = Partner::onlyTrashed()->where('id', 3)->get();
+    return $data;
+});
+
+// Eloquent restore deleted data
+Route::get('/ersdelete', function(){
+    Partner::withTrashed()->where('id', 3)->restore();
+});
+
+// Eloquent force delete data
+Route::get('/efdelete', function(){
+    Partner::withTrashed()->where('id', 3)->forceDelete();
+});
