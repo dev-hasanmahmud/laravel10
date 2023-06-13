@@ -6,6 +6,7 @@ use App\Http\Controllers\BasicController;
 use App\Http\Controllers\ProvisionServer;
 use App\Http\Controllers\PhotoController;
 use App\Models\User;
+use App\Models\Partner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\DB;
@@ -135,4 +136,25 @@ Route::get('/update', function(){
 Route::get('/delete', function(){
     $deleted = DB::delete('delete from users where id=?', [3]);
     return $deleted;
+});  
+
+// Eloquent Read Data
+Route::get('/eread', function(){
+    $datas = Partner::all();
+    // dd($datas);
+
+    foreach($datas as $val) {
+        return $val->name.' - '.$val->bio;
+    }
+});  
+
+// Eloquent Read with find Data
+Route::get('/ereadfind', function(){
+    // $data = Partner::where('id', 1)->first();
+    // $data = Partner::find(2);
+    // $data = Partner::where('id', 1)->orderBy('id', 'desc')->take(1)->get();
+    // $data = Partner::findOrFail(2);
+    $data = Partner::findOrFail(2);
+
+    return $data;
 });  
