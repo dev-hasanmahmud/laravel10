@@ -167,3 +167,8 @@ Route::get('/einsert', function(){
     $partner->bio = "Billiger description";
     $partner->save();
 });
+
+// Eloquent create data
+Route::get('/create', function(){
+    Partner::create(['name'=>'Shopnomix','bio'=>'Shopnomix Description']);
+});   
