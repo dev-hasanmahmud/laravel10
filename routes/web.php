@@ -172,3 +172,17 @@ Route::get('/einsert', function(){
 Route::get('/create', function(){
     Partner::create(['name'=>'Shopnomix','bio'=>'Shopnomix Description']);
 });   
+
+// Eloquent update data
+Route::get('/eupdate', function(){
+    Partner::where('id', 2)->update(['name'=>'Gaizel','bio'=>'Gaizel Description']);
+}); 
+
+// Eloquent delete data
+Route::get('/edelete', function(){
+    // $data = Partner::find(1);
+    // $data->delete();
+
+    Partner::destroy(2);
+
+});
