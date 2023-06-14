@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -12,12 +13,25 @@ class PostController extends Controller
     }
 
     public function store(StorePostRequest $request){
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'title' => 'required|unique:posts|max:255',
             'descriptions' => 'required',
         ]);
 
-        Post::create($request->all());
+        if ($validator->fails()) {
+            return redirect('post/create')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
+        // Retrieve the validated input...
+        $validated = $validator->validated();
+
+        // $validated = $validator->safe()->only(['title', 'descriptions']);
+        // $validated = $validator->safe()->except(['title', 'descriptions']);
+        $validated = $request->safe()->all();
+
+        Post::create($validated);
         return redirect()->back()->withInput();
     }
 }
