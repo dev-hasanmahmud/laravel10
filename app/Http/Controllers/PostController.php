@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
 use Illuminate\Support\Facades\Validator;
+use App\Rules\Uppercase;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -15,7 +16,7 @@ class PostController extends Controller
     public function store(StorePostRequest $request){
         $validator = Validator::make($request->all(), [
             'title' => 'required|unique:posts|max:255',
-            'descriptions' => 'required',
+            'descriptions' => ['required', 'string', new Uppercase],
         ]);
 
         if ($validator->fails()) {
