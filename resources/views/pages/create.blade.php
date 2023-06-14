@@ -12,14 +12,14 @@
         </div>
     @endif
 
-    <form action="{{url('post')}}" method="POST">
+    {!! Form::open(['url' => 'post', 'method' => 'POST']) !!}
         @csrf
-        <label for="title">Title</label>
-        <input type="text" name="title" value="{{ old('title') }}">
+        {!! Form::label('title', 'Title'); !!}
+        {!! Form::text('title', '', ['value' => old('title')]); !!}
         <br/><br/>
-        <label for="descriptions">Description</label>
-        <input type="text" name="descriptions" value="{{ old('descriptions') }}">
+        {!! Form::label('descriptions', 'Description'); !!}
+        {!! Form::text('descriptions', '', ['value' => old('descriptions')]); !!}
         <br/><br/>
-        <input type="submit" name="submit" value="Submit">
-    </form>
+        {!! Form::submit('Submit'); !!}
+    {!! Form::close() !!}
 @endsection
