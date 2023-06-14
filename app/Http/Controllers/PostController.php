@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Post;
+use App\Http\Requests\StorePostRequest;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -10,7 +11,7 @@ class PostController extends Controller
         return view('pages.create');
     }
 
-    public function store(Request $request){
+    public function store(StorePostRequest $request){
         $request->validate([
             'title' => 'required|unique:posts|max:255',
             'descriptions' => 'required',
