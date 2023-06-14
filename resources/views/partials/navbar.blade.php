@@ -12,4 +12,5 @@
     <li><a href="{{url('/')}}">Home</a></li>
     <li><a href="{{url('/contact')}}">Contact</a></li>
     <li><a href="{{url('/photos')}}">Users</a></li>
+    <li><a href="{{url('/post/create')}}">Posts</a></li>
 </ul>

@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\BasicController;
 use App\Http\Controllers\ProvisionServer;
 use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\PostController;
 use App\Models\User;
 use App\Models\Partner;
 use Illuminate\Http\Request;
@@ -208,3 +209,7 @@ Route::get('/ersdelete', function(){
 Route::get('/efdelete', function(){
     Partner::withTrashed()->where('id', 3)->forceDelete();
 });
+
+// 
+Route::get('/post/create', [PostController::class, 'create']);
+Route::post('/post', [PostController::class, 'store']);
