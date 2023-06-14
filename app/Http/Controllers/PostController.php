@@ -17,6 +17,6 @@ class PostController extends Controller
         ]);
 
         Post::create($request->all());
-        return redirect()->back();
+        return redirect()->back()->withInput();
     }
 }

@@ -210,6 +210,6 @@ Route::get('/efdelete', function(){
     Partner::withTrashed()->where('id', 3)->forceDelete();
 });
 
-// 
+// Form create and Validation with Post Store
 Route::get('/post/create', [PostController::class, 'create']);
 Route::post('/post', [PostController::class, 'store']);
