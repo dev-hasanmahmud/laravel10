@@ -7,6 +7,7 @@ use App\Http\Controllers\ProvisionServer;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\Auth\AuthController;
 use App\Models\User;
 use App\Models\Partner;
 use Illuminate\Http\Request;
@@ -218,3 +219,11 @@ Route::post('/post', [PostController::class, 'store']);
 // Form uploading file
 Route::get('/updoad/create', [FileController::class, 'create']);
 Route::post('/updoad', [FileController::class, 'store']);
+
+// Authentication
+Route::get('login', [AuthController::class, 'index'])->name('login');
+Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
+Route::get('registration', [AuthController::class, 'registration'])->name('register');
+Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post'); 
+Route::get('dashboard', [AuthController::class, 'dashboard']); 
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
