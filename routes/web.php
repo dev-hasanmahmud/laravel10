@@ -6,6 +6,7 @@ use App\Http\Controllers\BasicController;
 use App\Http\Controllers\ProvisionServer;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\FileController;
 use App\Models\User;
 use App\Models\Partner;
 use Illuminate\Http\Request;
@@ -213,3 +214,7 @@ Route::get('/efdelete', function(){
 // Form create and Validation with Post Store
 Route::get('/post/create', [PostController::class, 'create']);
 Route::post('/post', [PostController::class, 'store']);
+
+// Form uploading file
+Route::get('/updoad/create', [FileController::class, 'create']);
+Route::post('/updoad', [FileController::class, 'store']);
