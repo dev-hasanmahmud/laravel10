@@ -18,8 +18,10 @@ class FileController extends Controller
         $file = $request->file('file');
         $ext = $file->getClientOriginalExtension();
         $name = 'file_'.time().'.'.$ext;
-        $file->move('images', $name);
-        $path = '/images/'.$name;
+        // $file->move('images', $name);
+        // $path = '/images/'.$name;
+        $request->file('file')->storeAs('public/images',$name);
+        $path = 'storage/images/'.$name;
         
         $data = new File();
         $data->name = $name;
