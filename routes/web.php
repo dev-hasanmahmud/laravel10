@@ -223,7 +223,7 @@ Route::group(['middleware'=>'auth'], function(){
     // Middleware
     Route::get('admin/dashboard', function(){
         return view('admin');
-    })->middleware('admin');
+    })->middleware('admin:1'); // Middleware Parameters
 });
 
 // Authentication
