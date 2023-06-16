@@ -14,4 +14,5 @@
     <li><a href="{{url('/photos')}}">Users</a></li>
     <li><a href="{{url('/post/create')}}">Posts</a></li>
     <li><a href="{{url('/updoad/create')}}">Updoad</a></li>
+    <li><a href="{{url('/admin/dashboard')}}">Dashboard</a></li>
 </ul>
