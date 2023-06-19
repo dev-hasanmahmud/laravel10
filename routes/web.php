@@ -264,5 +264,7 @@ Route::get('/sh', function (Request $request) {
 
     $company = $request->session()->get('company');
     $request->session()->forget('company');
-    dd($company);
 });
+
+// Session
+Route::get('/sess', [BasicController::class, 'sess']);
