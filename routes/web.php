@@ -233,3 +233,36 @@ Route::get('registration', [AuthController::class, 'registration'])->name('regis
 Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post'); 
 Route::get('dashboard', [AuthController::class, 'dashboard']); 
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
+// Global Session Helper
+Route::get('/sh', function (Request $request) {
+    // Specifying a default value
+    $value = session('username', 'Rohim Ullah');
+    
+    // Store a piece of data in the session
+    session(['name' => 'Korim', 'age' => '40']);
+
+    $value2 = session('age');
+
+    // Retrieving All Session Data
+    $data = $request->session()->all();
+   
+    // if ($request->session()->missing('users')) {
+    //     dd('Missing');
+    // }
+
+    // if ($request->session()->exists('users')) {
+    //    dd('Exists');
+    // }
+
+    // if ($request->session()->has('name')) {
+    //     dd('Korim Hasan');
+    // }
+
+    // Via a request instance
+    $request->session()->put('company', 'Google');
+
+    $company = $request->session()->get('company');
+    $request->session()->forget('company');
+    dd($company);
+});
