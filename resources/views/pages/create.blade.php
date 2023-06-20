@@ -15,11 +15,11 @@
     {!! Form::open(['url' => 'post', 'method' => 'POST']) !!}
         @csrf
         {!! Form::label('title', 'Title'); !!}
-        {!! Form::text('title', '', ['value' => old('title')]); !!}
+        {!! Form::text('title', '', ['class' => 'form-control', 'value' => old('title')]); !!}
         <br/><br/>
         {!! Form::label('descriptions', 'Description'); !!}
-        {!! Form::text('descriptions', '', ['value' => old('descriptions')]); !!}
+        {!! Form::text('descriptions', '', ['class' => 'form-control', 'value' => old('descriptions')]); !!}
         <br/><br/>
-        {!! Form::submit('Submit'); !!}
+        {!! Form::submit('Submit', ['class' => 'btn btn-info']); !!}
     {!! Form::close() !!}
 @endsection

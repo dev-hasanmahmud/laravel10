@@ -13,7 +13,7 @@
                 <div class="panel-heading">Welcome to Admin Dashboard</div>
 
                 <div class="panel-body">
-                    <a href="{{url('admin/dashboard')}}">{{auth()->user()->name}} - {{auth()->user()->email}}</a>
+                    <a href="{{url('admin/dashboard')}}" class="text-decoration-none link-dark">{{auth()->user()->name}} - {{auth()->user()->email}}</a>
                 </div>
             </div>
         </div>

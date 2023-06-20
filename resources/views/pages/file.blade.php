@@ -5,8 +5,8 @@
     {!! Form::open(['url' => 'updoad', 'method' => 'POST', 'files' => true]) !!}
         @csrf
         {!! Form::label('file', 'File'); !!}
-        {!! Form::file('file'); !!}
+        {!! Form::file('file', ['class' => 'form-control']); !!}
         <br/><br/>
-        {!! Form::submit('Submit'); !!}
+        {!! Form::submit('Submit', ['class' => 'btn btn-info']); !!}
     {!! Form::close() !!}
 @endsection

@@ -9,10 +9,10 @@
 </style>
 
 <ul id="stats">
-    <li><a href="{{url('/')}}">Home</a></li>
-    <li><a href="{{url('/contact')}}">Contact</a></li>
-    <li><a href="{{url('/photos')}}">Users</a></li>
-    <li><a href="{{url('/post/create')}}">Posts</a></li>
-    <li><a href="{{url('/updoad/create')}}">Updoad</a></li>
-    <li><a href="{{url('/admin/dashboard')}}">Dashboard</a></li>
+    <li><a class="link-dark" href="{{url('/')}}">Home</a></li>
+    <li><a class="link-dark" href="{{url('/contact')}}">Contact</a></li>
+    <li><a class="link-dark" href="{{url('/photos')}}">Users</a></li>
+    <li><a class="link-dark" href="{{url('/post/create')}}">Posts</a></li>
+    <li><a class="link-dark" href="{{url('/updoad/create')}}">Updoad</a></li>
+    <li><a class="link-dark" href="{{url('/admin/dashboard')}}">Dashboard</a></li>
 </ul>
