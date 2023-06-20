@@ -10,6 +10,20 @@
         @csrf
         <input type="text" name="name" class="form-control" placeholder="Enter Name">
         <br/>
+        <select class="form-control" name="state" id="district">
+            <option value="Dhaka">Dhaka</option>
+            <option value="Chittagong">Chittagong</option>
+        </select>
+        <br/>
         <button type="submit" class="btn btn-info">Submit</button>
     </form>
 @endsection
+
+@push('scripts')
+    <script type="module">
+        $(document).ready(function() {
+            var dict = $("#district").val();
+            console.log(dict);
+        });
+    </script>
+@endpush

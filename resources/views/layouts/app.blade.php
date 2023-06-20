@@ -48,6 +48,8 @@
         </div> 
     </div>  
 
+    @vite(['resources/lib/jquery.min.js'])
+
     @stack('scripts')
 </body>
 </html>
