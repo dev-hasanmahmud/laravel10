@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 class FileController extends Controller
 {
     public function create(){
-        return view('pages.file');
+        $files = File::all();
+        return view('pages.file', compact('files'));
     }
 
     public function store(Request $request){
@@ -21,7 +22,7 @@ class FileController extends Controller
         // $file->move('images', $name);
         // $path = '/images/'.$name;
         $request->file('file')->storeAs('public/images',$name);
-        $path = 'storage/images/'.$name;
+        $path = '/storage/images/'.$name;
         
         $data = new File();
         $data->name = $name;
