@@ -22,5 +22,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserTableSeeder::class,
         ]);
+
+        // Factory
+        \App\Models\Post::factory(10)->create();
     }
 }
