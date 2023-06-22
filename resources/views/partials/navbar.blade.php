@@ -14,5 +14,6 @@
     <li><a class="link-dark" href="{{url('/photos')}}">Users</a></li>
     <li><a class="link-dark" href="{{url('/post/create')}}">Posts</a></li>
     <li><a class="link-dark" href="{{url('/updoad/create')}}">Updoad</a></li>
+    <li><a class="link-dark" href="{{url('/contact_show/1')}}">Component</a></li>
     <li><a class="link-dark" href="{{url('/admin/dashboard')}}">Dashboard</a></li>
 </ul>

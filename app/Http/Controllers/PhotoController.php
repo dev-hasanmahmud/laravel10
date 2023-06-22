@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\View;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class PhotoController extends Controller
 {
@@ -72,9 +73,10 @@ class PhotoController extends Controller
     public function contact_show($id)
     {
         $name = 'Hasan Mahmud';
-        
+        $title = 'This data come form Component :';
+        $users = User::all();
         // return view('pages.contact_show')->with('id', $id);
         // return view('pages.contact_show', compact('id', 'name'));
-        return View::make('pages.contact_show', compact('id', 'name'));  // Views may also be returned using the View facade
+        return View::make('pages.contact_show', compact('id', 'name', 'title', 'users'));  // Views may also be returned using the View facade
     }
 }
